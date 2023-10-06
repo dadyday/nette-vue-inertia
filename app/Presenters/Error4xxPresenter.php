@@ -7,11 +7,21 @@ namespace App\Presenters;
 use Nette;
 
 
+/**
+ * Handles 4xx HTTP error responses.
+ */
 final class Error4xxPresenter extends Nette\Application\UI\Presenter
 {
+	protected function checkHttpMethod(): void
+	{
+		// allow access via all HTTP methods
+	}
+
+
 	public function startup(): void
 	{
 		parent::startup();
+		// ensures the request is a forward (internal redirect)
 		if (!$this->getRequest()->isMethod(Nette\Application\Request::FORWARD)) {
 			$this->error();
 		}
