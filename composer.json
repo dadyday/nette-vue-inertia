@@ -1,6 +1,6 @@
 {
 	"name": "nette/web-project",
-	"description": "Nette: Standard Web Project",
+	"description": "Nette: Minimal Web Project",
 	"keywords": ["nette"],
 	"type": "project",
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
@@ -21,8 +21,7 @@
 		"tracy/tracy": "^2.9"
 	},
 	"require-dev": {
-		"nette/tester": "^2.4",
-		"symfony/thanks": "^1"
+		"nette/tester": "^2.4"
 	},
 	"autoload": {
 		"psr-4": {
@@ -32,7 +31,7 @@
 	"minimum-stability": "stable",
 	"config": {
 		"allow-plugins": {
-			"symfony/thanks": true
+			"symfony/thanks": false
 		}
 	}
 }
