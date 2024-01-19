@@ -3,17 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+	<!--base href="//localhost:5133">
+	<script type="module" src="/@vite/client"></script>
+	<script type="module" src="/src/main.js"></script -->
+	{vite('main.js')|noescape}
 </head>
 
 <body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-
-	{include content}
-
-	{block scripts}
-	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-	{/block}
+    <div id="app" data-page='{$inertiaPageObject|noescape}'></div>
 </body>
 </html>

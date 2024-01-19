@@ -1,1 +1,8 @@
 config/local.neon
+/**/_*
+/temp
+/log
+/vendor
+/node_modules
+/.idea
+/public/dist
