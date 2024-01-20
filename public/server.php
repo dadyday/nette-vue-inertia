@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/cfg.php';
+const VITE_HOST = 'http://localhost:5133';
 
 $uri = $_SERVER["REQUEST_URI"];
 $file = __DIR__.'/'.$uri;

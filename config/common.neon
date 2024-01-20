@@ -5,6 +5,9 @@ application:
 	mapping:
 		*: App\Presenters\*Presenter
 
+latte:
+	extensions:
+		- App\ViteExtension(%wwwDir%, /dist, "http://localhost:5133")
 
 services:
 	- App\RouterFactory::createRouter

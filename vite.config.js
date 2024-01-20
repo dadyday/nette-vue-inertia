@@ -20,8 +20,7 @@ export default defineConfig({
     //  '@': fileURLToPath(new URL('./src', import.meta.url))
   },
   root: 'src',
-  // base: process.env.APP_ENV === 'dev' ? '/' : '/dist/',
-  base: './',
+  base: '/',
   build: {
     outDir: '../public/dist',
     emptyOutDir: false,

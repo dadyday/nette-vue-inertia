@@ -5,13 +5,10 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-	<!--base href="//localhost:5133">
-	<script type="module" src="/@vite/client"></script>
-	<script type="module" src="/src/main.js"></script -->
 	{vite('main.js')|noescape}
 </head>
 
 <body>
-    <div id="app" data-page='{$inertiaPageObject|noescape}'></div>
+	<div id="app" data-page='{$inertiaPageObject|noescape}'></div>
 </body>
 </html>
