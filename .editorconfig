@@ -16,6 +16,8 @@ indent_size = 2
 tab_width = 2
 
 [{*.cjs,*.js}]
+indent_size = 2
+tab_width = 2
 
 [{*.markdown,*.md}]
 
