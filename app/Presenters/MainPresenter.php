@@ -7,7 +7,7 @@ namespace App\Presenters;
 use PL\NetteInertia\InertiaPresenter;
 
 
-final class HomePresenter extends InertiaPresenter {
+final class MainPresenter extends BasePresenter {
 
 	public function renderDefault(): void {
 		$this->inertia([
@@ -20,9 +20,13 @@ final class HomePresenter extends InertiaPresenter {
 		], 'Home');
 	}
 
-	protected function getAssetVersion(): string {
-		return '1.0';
+	public function renderUsers(): void {
+		sleep(2);
+		$this->inertia([], 'Users');
 	}
 
+	public function renderSettings(): void {
+		$this->inertia([], 'Settings');
+	}
 
 }
