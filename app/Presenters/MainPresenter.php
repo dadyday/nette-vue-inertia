@@ -21,8 +21,10 @@ final class MainPresenter extends BasePresenter {
 	}
 
 	public function renderUsers(): void {
-		sleep(2);
-		$this->inertia([], 'Users');
+		# sleep(2);
+		$this->inertia([
+			'time' => date('Y-m-d H:i:s'),
+		], 'Users');
 	}
 
 	public function renderSettings(): void {

@@ -1,13 +1,19 @@
 <script setup>
-import {Link} from "@inertiajs/vue3";
+import PageLink from "@/Shared/PageLink.vue";
 </script>
 
 <template>
 	<nav>
 		<ul>
-			<li><Link href="/">Home</Link></li>
-			<li><Link href="/users">Users</Link></li>
-			<li><Link href="/settings">Settings</Link></li>
+			<li>
+				<PageLink href="/">Home</PageLink>
+			</li>
+			<li>
+				<PageLink href="/users?bla">Users</PageLink>
+			</li>
+			<li>
+				<PageLink href="/settings">Settings</PageLink>
+			</li>
 		</ul>
 	</nav>
 </template>
