@@ -3,6 +3,12 @@ import './assets/main.css'
 import {createApp, h} from 'vue'
 import {createInertiaApp} from '@inertiajs/vue3'
 
+// import { createPinia } from 'pinia'
+// app.use(createPinia())
+
+// import router from './router'
+// app.use(router)
+
 
 createInertiaApp({
 	resolve: name => {
