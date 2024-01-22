@@ -1,15 +1,12 @@
 <script setup>
-import Layout from "@/Shared/Layout.vue";
-
-defineOptions({
-	layout: Layout,
-})
 defineProps({
 	time: String,
 })
 </script>
 
 <template>
+	<Head title="Users"/>
+
 	<h1>Users</h1>
 	<div style="position: relative; bottom: -600px;">
 		Current Time: {{ time }}

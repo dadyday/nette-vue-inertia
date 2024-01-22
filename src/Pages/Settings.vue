@@ -1,12 +1,15 @@
 <script setup>
-import Layout from "@/Shared/Layout.vue";
+import SpecialLayout from "@/Shared/SpecialLayout.vue";
 
 defineOptions({
-	layout: Layout,
+	layout: SpecialLayout,
 })
+
 </script>
 
 <template>
+	<Head title="Settings" />
+
 	<h1>Settings</h1>
 </template>
 
