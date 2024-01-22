@@ -5,6 +5,7 @@ import {computed} from "vue";
 
 const $page = usePage();
 const userName = computed( () => $page.props.name)
+const random = Math.floor(Math.random() * 90000 + 10000)
 
 </script>
 
@@ -13,7 +14,10 @@ const userName = computed( () => $page.props.name)
 		<header>
 			<img alt="Vue logo" class="logo" height="125" src="@/assets/logo.svg" width="125"/>
 			<Nav/>
-			<div>Hello {{ userName }}!</div>
+			<div>
+				<p>Hello {{ userName }}!</p>
+				<p>{{ random }}</p>
+			</div>
 		</header>
 	</section>
 	<section>
