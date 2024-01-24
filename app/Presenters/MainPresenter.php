@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
-use PL\NetteInertia\InertiaPresenter;
 
+use Nette\Database\Table\Selection;
 
 final class MainPresenter extends BasePresenter {
+
+
+	/** @var Selection @inject */
+	public Selection $oUsers;
+
 
 	protected function share(array $aProp): array {
 		return array_merge([

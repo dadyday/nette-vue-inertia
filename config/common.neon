@@ -1,4 +1,5 @@
 parameters:
+	rootDir: %appDir%/../
 
 
 application:
@@ -9,5 +10,12 @@ latte:
 	extensions:
 		- App\ViteExtension(%wwwDir%, /dist, "http://localhost:5133")
 
+database:
+	dsn: 'sqlite:%rootDir%/data/demo'
+
 services:
 	- App\RouterFactory::createRouter
+	users:
+		class: Nette\Database\Table\Selection
+		factory: @Nette\Database\Explorer::table('users')
+
