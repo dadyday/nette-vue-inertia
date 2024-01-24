@@ -32,8 +32,19 @@ final class MainPresenter extends BasePresenter {
 	}
 
 	public function renderUsers(): void {
-		# sleep(2);
+		$oFaker = \Faker\Factory::create();
+		$aRow = [];
+		for ($id = 1; $id <= 100; $id++) {
+			$aRow[] = [
+				'id' => $id,
+				'name' => $oFaker->name(),
+				'email' => $oFaker->email(),
+			];
+		}
+
+		sleep(1);
 		$this->inertia([
+			'users' => $aRow,
 			'time' => date('Y-m-d H:i:s'),
 		], 'Users');
 	}
