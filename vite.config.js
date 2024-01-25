@@ -2,6 +2,10 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import liveReload from 'vite-plugin-live-reload'
 import { fileURLToPath, URL } from 'node:url'
+import Components from 'unplugin-vue-components/vite'
+import {BootstrapVueNextResolver} from 'unplugin-vue-components/resolvers'
+import Icons from 'unplugin-icons/vite'
+import IconsResolve from 'unplugin-icons/resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +15,17 @@ export default defineConfig({
       __dirname + '/(app|config)/**/*.php',
       __dirname + '/public/*.php',
     ]),
+		Components({
+			resolvers: [
+				BootstrapVueNextResolver(),
+				IconsResolve(),
+			],
+			dts: true,
+		}),
+		Icons({
+			compiler: 'vue3',
+			autoInstall: true,
+		}),
     splitVendorChunkPlugin(),
   ],
   resolve: {

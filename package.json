@@ -1,11 +1,19 @@
 {
   "dependencies": {
     "@inertiajs/vue3": "^1.0.14",
+    "bootstrap": "^5.3.2",
+    "bootstrap-vue-next": "^0.15.5",
+    "unplugin-vue-components": "^0.26.0",
     "vite-plugin-live-reload": "^3.0.3",
     "vue": "^3.4.13"
   },
   "devDependencies": {
+    "@iconify-json/bi": "^1.1.23",
+    "@iconify-json/fa": "^1.1.8",
     "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/compiler-sfc": "^3.4.15",
+    "sass": "^1.70.0",
+    "unplugin-icons": "^0.18.2",
     "vite": "^5.0.11"
   },
   "scripts": {

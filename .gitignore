@@ -7,3 +7,4 @@ config/local.neon
 /.idea
 /public/dist
 composer.lock
+/src/components.d.ts
