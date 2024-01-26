@@ -9,7 +9,7 @@ const props = defineProps({
 
 const $page = usePage();
 
-const active = computed(() => props.href.split('?')[0] === $page.url);
+const active = computed(() => props.href.split('?')[0] === $page.url.split('?')[0]);
 </script>
 
 <template>
