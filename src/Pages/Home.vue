@@ -1,10 +1,8 @@
 <script setup>
-import {ref} from "vue";
-
 defineProps({
 	frameworks: Array,
 })
-const show = ref(false)
+const show = $ref(false)
 </script>
 
 <template>
