@@ -23,9 +23,10 @@ Installation
 The best way to install Web Project is using Composer. If you don't have Composer yet,
 download it following [the instructions](https://doc.nette.org/composer). Then use command:
 
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
-
+```cmd
+composer create-project nette/web-project path/to/install
+cd path/to/install
+```
 
 Make directories `temp/` and `log/` writable.
 
@@ -35,8 +36,52 @@ Dev Server
 
 The simplest way to get started is to start the built-in PHP server in the root directory of your project:
 
-	composer dev
-    yarn dev
+```cmd
+composer dev
+yarn dev
+```
+
 
 Then visit `http://localhost:8000` in your browser to see the welcome page.
+
+Technologies
+----------------
+
+### Pinia 
+
+* https://pinia.vuejs.org/
+* `yarn add pinia`
+```js
+// @/stores/app.js
+import {defineStore} from "pinia";
+import {ref, computed} from "vue";
+
+export const useAppStore = defineStore('app', () => {
+  const	name = ref('Spongebob') // state
+  const greeting = computed(() => `Hello ${name.value}!`) // getter
+  function setName(value) { name.value = value } // action
+
+  return { name, greeting, setName }
+})
+```
+```vue 
+// @/Pages/Home.vue
+<script setup>
+import {useAppStore} from '@/stores/app'
+import {storeToRefs} from "pinia";
+
+const $appStore = useAppStore()
+const {name, greeting} = storeToRefs($appStore)
+name.value = 'Patrick'
+// using vue macro:
+// let {name} = $(storeToRefs($appStore))
+// name = 'Patrick'
+</script>
+
+<template>
+<div>{{ greeting }}</div>
+<input v-model="name" />
+<button @click="$appStore.setName('Thadeus')">Set</button>
+</template>
+```
 

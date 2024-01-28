@@ -1,12 +1,15 @@
 <script setup>
 import {router} from "@inertiajs/vue3";
-import {ref, watch} from "vue";
+import {useAppStore} from '@/stores/app'
+import {storeToRefs} from "pinia";
 
 const props = defineProps({
 	time: String,
-	sleep: Number,
 	users: Object,
 })
+
+const $appStore = useAppStore()
+const {sleep} = $(storeToRefs($appStore))
 
 const page = $computed({
 	get: () => props.users.currentPage ?? 1,
@@ -14,7 +17,6 @@ const page = $computed({
 })
 
 let busy = $ref(false)
-let sleep = $ref(props.sleep ?? 5)
 let loading
 let box
 
@@ -36,13 +38,15 @@ function loadPage(page) {
 
 	<h1>Users</h1>
 	<div>
-		<BPagination
-			v-model="page"
-			:total-rows="users.total"
-			:per-page="users.perPage"
-		/>
-		<BFormInput type="number" v-model="sleep" />
-
+		<BRow>
+			<BPagination
+				v-model="page"
+				:total-rows="users.total"
+				:per-page="users.perPage"
+				class="w-auto"
+			/>
+			<BFormInput type="number" v-model="sleep" class="w-25" />
+		</BRow>
 		<BOverlay :show="busy" @click="loading?.cancel()">
 			<BTable
 				:items="users.data"
@@ -55,7 +59,7 @@ function loadPage(page) {
 		<Link href="/users" preserve-scroll>Refresh</Link>
 	</div>
 
-	<BModal ref="box" title="Loading Users ..." >Canceled!</BModal>
+	<BModal okOnly ref="box" title="Loading Users ..." >Canceled!</BModal>
 </template>
 
 <style lang="sass" scoped>

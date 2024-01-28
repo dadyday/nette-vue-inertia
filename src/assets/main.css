@@ -96,3 +96,6 @@ nav a:first-of-type {
 	}
 }
 
+.row {
+	align-items: baseline
+}

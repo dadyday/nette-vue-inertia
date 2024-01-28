@@ -1,7 +1,14 @@
 <script setup>
+import {useAppStore} from '@/stores/app'
+import {storeToRefs} from "pinia";
+
 defineProps({
 	frameworks: Array,
 })
+
+const $appStore = useAppStore()
+let {name} = $(storeToRefs($appStore))
+
 const show = $ref(false)
 </script>
 
@@ -12,6 +19,8 @@ const show = $ref(false)
 	</Head>
 
 	<p>
+		<h1>Hello {{ name }}</h1>
+
 		<p>Featured by:</p>
 		<BListGroup>
 			<BListGroupItem v-for="framework in [...frameworks, 'Bootstrap 5']">
@@ -23,6 +32,9 @@ const show = $ref(false)
 
 	<p>
 		<BButton variant="primary" @click="show = !show">Click me</BButton>
-		<BModal v-model="show">Test</BModal>
+		<BModal okOnly v-model="show">
+			<BFormInput v-model="name" />
+			<BButton @click="$appStore.setName('Thadeus')">Set Thadeus</BButton>
+		</BModal>
 	</p>
 </template>
