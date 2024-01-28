@@ -32,7 +32,7 @@ final class MainPresenter extends BasePresenter {
 		], 'Home');
 	}
 
-	public function renderUsers(int $page = null): void {
+	public function renderUsers(int $page = null, int $sleep = 2): void {
 		$oPaginator = (new Paginator())
 			->setPage($page ?? 1)
 			->setItemsPerPage(10)
@@ -50,7 +50,7 @@ final class MainPresenter extends BasePresenter {
 			];
 		}
 
-		sleep(2);
+		sleep($sleep);
 		$this->inertia([
 			'users' => [
 				'currentPage' => $oPaginator->page,
@@ -65,6 +65,7 @@ final class MainPresenter extends BasePresenter {
 
 				'data' => $aRow,
 			],
+			'sleep' => $sleep,
 			'time' => date('Y-m-d H:i:s'),
 		], 'Users');
 	}
