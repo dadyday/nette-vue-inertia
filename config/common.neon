@@ -15,7 +15,9 @@ database:
 
 services:
 	- App\RouterFactory::createRouter
+	- App\Model\Model
+
 	users:
 		class: Nette\Database\Table\Selection
-		factory: @Nette\Database\Explorer::table('users')
+		factory: @App\Model\Model::create('users')
 

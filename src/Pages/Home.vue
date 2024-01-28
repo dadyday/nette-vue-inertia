@@ -24,7 +24,7 @@ const show = $ref(false)
 		<p>Featured by:</p>
 		<BListGroup>
 			<BListGroupItem v-for="framework in [...frameworks, 'Bootstrap 5']">
-				<IBiCheckLg />
+				<IconBiCheckLg />
 				{{ framework }}
 			</BListGroupItem>
 		</BListGroup>

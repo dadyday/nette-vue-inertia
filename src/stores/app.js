@@ -6,7 +6,7 @@ export const useAppStore = defineStore('app', () => {
 	const greeting = computed(() => `Hello ${name.value}!`) // getter
 	function setName(value) { name.value = value } // action
 
-	const sleep = ref(2)
+	const sleep = ref(0)
 
 	return {
 		name, greeting, setName,

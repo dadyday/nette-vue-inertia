@@ -8,3 +8,4 @@ config/local.neon
 /public/dist
 composer.lock
 /src/components.d.ts
+/data/

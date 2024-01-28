@@ -2,34 +2,42 @@
 import {router} from "@inertiajs/vue3";
 import {useAppStore} from '@/stores/app'
 import {storeToRefs} from "pinia";
+import {watch} from "vue";
 
 const props = defineProps({
 	time: String,
 	users: Object,
+	filters: Object,
 })
 
 const $appStore = useAppStore()
 const {sleep} = $(storeToRefs($appStore))
 
-const page = $computed({
-	get: () => props.users.currentPage ?? 1,
-	set: loadPage
-})
+let search = $ref(props.filters.search)
+watch($$(search), () => loadPage(1))
+
+let page = $computed(() => props.users.currentPage ?? 1)
 
 let busy = $ref(false)
 let loading
 let box
 
 function loadPage(page) {
-	router.get('/users', { page, sleep }, {
+	router.get('/users', { page, search, sleep }, {
 		replace: true,
+		preserveState: true,
 		preserveScroll: true,
-		onBefore: () => busy = true,
-		onCancelToken: (token) => (loading = token),
-		onCancel: () => box?.show(),
+		onStart: () => busy = true,
+		onCancelToken: (token) => loading = token,
 		onFinish: () => busy = false,
 	})
 }
+
+function cancelLoading() {
+	loading?.cancel()
+	box.show();
+}
+
 
 </script>
 
@@ -41,13 +49,23 @@ function loadPage(page) {
 		<BRow>
 			<BPagination
 				v-model="page"
+				@update:modelValue="loadPage"
 				:total-rows="users.total"
 				:per-page="users.perPage"
 				class="w-auto"
 			/>
 			<BFormInput type="number" v-model="sleep" class="w-25" />
 		</BRow>
-		<BOverlay :show="busy" @click="loading?.cancel()">
+		<BRow>
+			<BInputGroup>
+				<BFormInput placeholder="Search" v-model="search"/>
+				<BInputGroupAppend>
+					<BButton variant="primary">Search</BButton>
+				</BInputGroupAppend>
+			</BInputGroup>
+		</BRow>
+
+		<BOverlay :show="busy" @click="cancelLoading">
 			<BTable
 				:items="users.data"
 			>

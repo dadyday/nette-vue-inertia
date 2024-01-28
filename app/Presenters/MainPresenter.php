@@ -32,23 +32,22 @@ final class MainPresenter extends BasePresenter {
 		], 'Home');
 	}
 
-	public function renderUsers(int $page = null, int $sleep = 0): void {
+	public function renderUsers(int $page = null, string $search = null, int $sleep = 0): void {
+
+		if ($search) $this->oUsers->where('name LIKE ?', "%$search%");
+
 		$oPaginator = (new Paginator())
 			->setPage($page ?? 1)
 			->setItemsPerPage(10)
-			->setItemCount(81)
+			->setItemCount(count($this->oUsers))
 		;
 
-		$oFaker = \Faker\Factory::create();
-		$aRow = [];
-		for ($id = $oPaginator->firstItemOnPage; $id <= $oPaginator->lastItemOnPage; $id++) {
-			$oFaker->seed($id); # always the same fakes
-			$aRow[] = [
-				'id' => $id,
-				'name' => $oFaker->name(),
-				'email' => $oFaker->email(),
-			];
-		}
+		$aRow = $this->oUsers
+			->select('id, name')
+			->page($page ?? 1, 10)
+			->fetchAssoc('id')
+		;
+
 
 		sleep($sleep);
 		$this->inertia([
@@ -63,7 +62,10 @@ final class MainPresenter extends BasePresenter {
 				'to' => $oPaginator->lastItemOnPage,
 				'total' => $oPaginator->itemCount,
 
-				'data' => $aRow,
+				'data' => array_values($aRow),
+			],
+			'filters' => [
+				'search' => $this->getRequest()->getParameter('search'),
 			],
 			'time' => date('Y-m-d H:i:s'),
 		], 'Users');

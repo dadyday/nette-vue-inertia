@@ -65,7 +65,7 @@ export const useAppStore = defineStore('app', () => {
 })
 ```
 ```vue 
-// @/Pages/Home.vue
+<!-- @/Pages/Home.vue -->
 <script setup>
 import {useAppStore} from '@/stores/app'
 import {storeToRefs} from "pinia";

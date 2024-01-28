@@ -20,7 +20,15 @@ export default defineConfig({
 		Components({
 			resolvers: [
 				BootstrapVueNextResolver(),
-				IconsResolve(),
+				IconsResolve({
+					prefix: 'icon',
+					alias: {
+						park: 'icon-park',
+						fas: 'fa-solid',
+						fci: 'flat-color-icons',
+						// ...
+					}
+				}),
 			],
 			dts: true,
 		}),
@@ -47,7 +55,7 @@ export default defineConfig({
     },
     watch: {
       include: '../app/**'
-    }
+    },
   },
   server: {
     strictPort: true,
