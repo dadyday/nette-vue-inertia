@@ -3,6 +3,7 @@ import {router} from "@inertiajs/vue3";
 import {useAppStore} from '@/stores/app'
 import {storeToRefs} from "pinia";
 import {watch} from "vue";
+import debounce from "lodash/debounce"
 
 const props = defineProps({
 	time: String,
@@ -14,9 +15,12 @@ const $appStore = useAppStore()
 const {sleep} = $(storeToRefs($appStore))
 
 let search = $ref(props.filters.search)
-watch($$(search), () => loadPage(1))
+watch($$(search), debounce(() => loadPage(1), 500))
 
-let page = $computed(() => props.users.currentPage ?? 1)
+let page = $computed({
+  get: () => props.users.currentPage ?? 1,
+  set: (value) => loadPage(value),
+})
 
 let busy = $ref(false)
 let loading
@@ -49,7 +53,6 @@ function cancelLoading() {
 		<BRow>
 			<BPagination
 				v-model="page"
-				@update:modelValue="loadPage"
 				:total-rows="users.total"
 				:per-page="users.perPage"
 				class="w-auto"

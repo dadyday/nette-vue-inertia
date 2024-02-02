@@ -197,24 +197,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/fa-solid@^1.1.8":
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/@iconify-json/fa-solid/-/fa-solid-1.1.8.tgz#948ae4efae27ba23ed99c82b3183cd94d8d5a90a"
-  integrity sha512-o1Z+pvz+bidq8lqXC8uOhBxlJ19NEH87TQ6JSXOQPQJ8zDIMpx2nbDFJjFtR5nTWQXLPRGEb0NO9NJAvalxeiw==
-  dependencies:
-    "@iconify/types" "*"
-
 "@iconify-json/fa@^1.1.8":
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/@iconify-json/fa/-/fa-1.1.8.tgz#23c17b822646768496bd4020073775a194783892"
   integrity sha512-he23ZsuDxA6Hx7rnrEpSJnmu7t7RtG/SbrENZhMSPiZ4bNRGHjyPZimtOy10k2/nfwNsW57ECDsO5eK0BkcoMg==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/flat-color-icons@^1.1.10":
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/@iconify-json/flat-color-icons/-/flat-color-icons-1.1.10.tgz#ea21530d44d6e688e3ae4754eda907e88687218d"
-  integrity sha512-tkkxTEPMYqDtss8tFij/gWfwrnt/NeChZoUGr6l71sWi7jYMwD35dYjFhM2bjtww5MCkVIAJaVx/3QJGUmMD/g==
   dependencies:
     "@iconify/types" "*"
 
@@ -927,6 +913,11 @@ lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 magic-string-ast@^0.3.0:
   version "0.3.0"
