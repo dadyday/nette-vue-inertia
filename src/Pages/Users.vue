@@ -4,6 +4,7 @@ import {useAppStore} from '@/stores/app'
 import {storeToRefs} from "pinia";
 import {watch} from "vue";
 import debounce from "lodash/debounce"
+import {useDebouncedRefHistory} from '@vueuse/core'
 
 const props = defineProps({
 	time: String,
@@ -15,7 +16,9 @@ const $appStore = useAppStore()
 const {sleep} = $(storeToRefs($appStore))
 
 let search = $ref(props.filters.search)
-watch($$(search), debounce(() => loadPage(1), 500))
+watch($$(search), debounce(() => loadPage(1), 1500))
+
+const { history, undo, redo, canUndo, canRedo } = useDebouncedRefHistory($$(search), { debounce: 1500 })
 
 let page = $computed({
   get: () => props.users.currentPage ?? 1,
@@ -61,10 +64,9 @@ function cancelLoading() {
 		</BRow>
 		<BRow>
 			<BInputGroup>
+				<BButton @click="undo()" :disabled="!canUndo"><IconFciPrevious /></BButton>
 				<BFormInput placeholder="Search" v-model="search"/>
-				<BInputGroupAppend>
-					<BButton variant="primary">Search</BButton>
-				</BInputGroupAppend>
+				<BButton @click="redo()" :disabled="!canRedo"><IconFciNext /></BButton>
 			</BInputGroup>
 		</BRow>
 

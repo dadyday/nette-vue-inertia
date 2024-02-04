@@ -1,7 +1,8 @@
 Nette Web Project
 =================
 
-This is a simple, skeleton application using the [Nette](https://nette.org), [Vue.js](https://vuejs.org/) and [Inertia.js](https://inertiajs.com/). This is meant to
+This is a simple, skeleton application using the [Nette](https://nette.org), [Vue.js](https://vuejs.org/)
+and [Inertia.js](https://inertiajs.com/). This is meant to
 be used as a starting point for your new projects.
 
 [Nette](https://nette.org) is a popular tool for PHP web development.
@@ -15,7 +16,6 @@ Requirements
 ------------
 
 - Web Project for Nette 3.1 requires PHP 8.0
-
 
 Installation
 ------------
@@ -41,47 +41,98 @@ composer dev
 yarn dev
 ```
 
-
 Then visit `http://localhost:8000` in your browser to see the welcome page.
 
 Technologies
 ----------------
 
-### Pinia 
+### Pinia
 
 * https://pinia.vuejs.org/
 * `yarn add pinia`
+
 ```js
 // @/stores/app.js
 import {defineStore} from "pinia";
 import {ref, computed} from "vue";
 
 export const useAppStore = defineStore('app', () => {
-  const	name = ref('Spongebob') // state
+  const name = ref('Spongebob') // state
   const greeting = computed(() => `Hello ${name.value}!`) // getter
-  function setName(value) { name.value = value } // action
+  function setName(value) {
+    name.value = value
+  } // action
 
-  return { name, greeting, setName }
+  return {name, greeting, setName}
 })
 ```
+
 ```vue 
 <!-- @/Pages/Home.vue -->
 <script setup>
-import {useAppStore} from '@/stores/app'
-import {storeToRefs} from "pinia";
+  import {useAppStore} from '@/stores/app'
+  import {storeToRefs} from "pinia";
 
-const $appStore = useAppStore()
-const {name, greeting} = storeToRefs($appStore)
-name.value = 'Patrick'
-// using vue macro:
-// let {name} = $(storeToRefs($appStore))
-// name = 'Patrick'
+  const $appStore = useAppStore()
+  const {name, greeting} = storeToRefs($appStore)
+  name.value = 'Patrick'
+  // using vue macro:
+  // let {name} = $(storeToRefs($appStore))
+  // name = 'Patrick'
 </script>
 
 <template>
-<div>{{ greeting }}</div>
-<input v-model="name" />
-<button @click="$appStore.setName('Thadeus')">Set</button>
+  <div>{{ greeting }}</div>
+  <input v-model="name"/>
+  <button @click="$appStore.setName('Thadeus')">Set</button>
+</template>
+```
+
+### Icons
+
+* https://github.com/unplugin/unplugin-icons
+* Icon gallery: https://icones.js.org/
+* `yarn add -D unplugin-vue-components`
+* `yarn add -D unplugin-icons`
+
+```js
+// vite.config.js
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolve from 'unplugin-icons/resolver'
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [
+        IconsResolve({
+          prefix: 'icon', // general prefix
+          alias: { // short set prefixes
+            park: 'icon-park',
+            fas: 'fa-solid',
+            fci: 'flat-color-icons',
+            // ...
+          }
+        }),
+      ],
+      dts: true, // create components.d.ts
+    }),
+    Icons({
+      compiler: 'vue3',
+      autoInstall: true,
+    }),
+  ],
+})
+```
+```vue 
+<!-- Component.vue -->
+<script setup>
+  // no imports needed
+</script>
+
+<template>
+  <IconFciLike />
 </template>
 ```
 
