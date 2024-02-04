@@ -75,4 +75,8 @@ final class MainPresenter extends BasePresenter {
 		$this->inertia([], 'Settings');
 	}
 
+    public function renderEdit(): void {
+        $this->inertia([], 'Edit');
+    }
+
 }

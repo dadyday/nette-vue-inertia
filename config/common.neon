@@ -1,6 +1,9 @@
 parameters:
 	rootDir: %appDir%/../
 
+tracy:
+    dumpTheme: dark
+    showBar: true
 
 application:
 	mapping:

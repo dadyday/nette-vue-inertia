@@ -16,7 +16,7 @@ class ViteExtension extends Latte\Extension {
 	public function __construct(string $wwwDir, string $distPath, string $viteHost) {
 		$this->wwwDir = $wwwDir;
 		$this->distPath = $distPath;
-		$this->viteHost = $viteHost;
+		$this->viteHost = $viteHost.$distPath;
 		$this->checkDev();
 	}
 

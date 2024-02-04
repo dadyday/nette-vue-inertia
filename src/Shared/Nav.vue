@@ -13,6 +13,9 @@ import PageLink from "@/Shared/PageLink.vue";
 			</li>
 			<li>
 				<PageLink href="/settings">Settings</PageLink>
+      </li>
+			<li>
+				<PageLink href="/edit">Edit</PageLink>
 			</li>
 		</ul>
 	</nav>
