@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <span style="width: 100%;"></span>
+  <div></div>
 </template>
 
 <style scoped>

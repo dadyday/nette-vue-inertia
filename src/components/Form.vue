@@ -4,17 +4,15 @@
 
 <template>
   <form>
-    <div class="container-fluid">
+    <div class="container">
       <slot></slot>
     </div>
   </form>
 </template>
 
-<style>
+<style lang="scss">
 form > div * {
-  border: dashed 1px #888;
-  margin: 5px;
-  padding: 5px;
+  // border: dashed 1px #888;
 }
 .field * {
   border: none;

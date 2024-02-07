@@ -3,9 +3,10 @@ defineProps([ 'label' ])
 </script>
 
 <template>
-  <button>{{ label }}</button>
+  <button type="button" class="btn btn-primary">{{ label }}</button>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+button {
+}
 </style>

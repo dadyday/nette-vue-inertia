@@ -1,20 +1,17 @@
 <script setup>
 import Field from "./Field.vue";
+defineProps(['label'])
 </script>
 
 <template>
-  <div class="col-box">
-    <Wrap :wrapper="Field">
-      <slot></slot>
-    </Wrap>
+  <div class="col-box col">
+    <Label v-if="label">{{ label }}</Label>
+    <Wrap :all="Field"><slot /></Wrap>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@use "bootstrap/dist/css/bootstrap.css";
-
 .col-box {
-  @extend .col, .m-2;
   background: #efe;
 }
 </style>
