@@ -12,6 +12,6 @@ defineProps(['label'])
 @use "bootstrap/dist/css/bootstrap.css";
 
 .label-box {
-  background: #eff;
+  background: #ffc;
 }
 </style>

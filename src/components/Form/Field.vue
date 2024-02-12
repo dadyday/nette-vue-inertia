@@ -3,9 +3,12 @@ defineProps(['label'])
 </script>
 
 <template>
-  <div class="input-group">
-    <slot />
-  </div>
+	<div class="field-box">
+		<Label v-if="label">{{ label }}</Label>
+		<div class="input-group">
+			<slot />
+		</div>
+	</div>
 </template>
 
 <style lang="scss">

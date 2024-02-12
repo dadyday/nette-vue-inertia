@@ -1,7 +1,6 @@
 <script setup>
-defineProps(['label'])
 </script>
 
 <template>
-  <input id="input" class="form-control"/>
+	<input id="input" class="form-control"/>
 </template>

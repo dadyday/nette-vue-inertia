@@ -3,50 +3,109 @@ import {BListGroupItem} from "bootstrap-vue-next";
 </script>
 
 <template>
-  <Wrap all="ul">
-    <Wrap each="li">
-      <span>item A</span>
-      <li><span>item B</span></li>
-      item C
-      <span>item D</span>
-    </Wrap>
-    <li>item E</li>
-  </Wrap>
-
-  <BListGroup>
-    <Wrap :each="BListGroupItem">
-      <span>item A</span>
-      <BListGroupItem>item B</BListGroupItem>
-      item C
-      <span>item D</span>
-    </Wrap>
-  </BListGroup>
-
-  <div class="input-group mb-3">
-    <span class="input-group-text">$</span>
-    <div>
-      <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-    </div>
-    <span class="input-group-text">0.00</span>
-    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-  </div>
-
   <Form>
+		<Row>
+			<Col>
+				<Field label="Single">
+					<TextField />
+				</Field>
+			</Col>
+			<Col>
+				<Field>
+					<Button label="Button"/>
+				</Field>
+			</Col>
+		</Row>
+	</Form>
+
+	<Form>
+			<Col>
+				<Field label="Single">
+					<TextField />
+				</Field>
+			</Col>
+			<Col>
+				<Field>
+					<Button label="Button"/>
+				</Field>
+			</Col>
+	</Form>
+
+	<Form>
+		<Row>
+				<Field label="Single">
+					<TextField />
+				</Field>
+				<Field>
+					<Button label="Button"/>
+				</Field>
+		</Row>
+	</Form>
+
+	<Form>
+		<Row>
+			<Col>
+					<TextField label="Single"/>
+			</Col>
+			<Col>
+					<Button label="Button"/>
+			</Col>
+		</Row>
+	</Form>
+
+	<Form>
+					<TextField label="Single"/>
+					<Button label="Button"/>
+		<Row></Row>
+					<TextField label="Single"/>
+					<Button label="Button"/>
+		<Row />
+				<Field label="Combi">
+					<TextField />
+					<Button label="Button"/>
+				</Field>
+	</Form>
+
+  <!--Form>
+	<Form>
+		<TextField label="Input" />
+  </Form>
+
+			<Col>
+				<Field label="Single">
+					<TextField />
+				</Field>
+			</Col>
+		<Row>
+			<Col>
+				<Field label="Single">
+					<TextField />
+				</Field>
+			</Col>
+			<Col>
+				<Field label="Combi">
+					<TextField />
+					<Button label="Button" />
+				</Field>
+			</Col>
+		</Row>
+
+
     <Row>
       <TextField label="Single" />
       <Col label="Multi">
         <TextField label="Left"/>
         <TextField label="Right"/>
       </Col>
-      <Field label="Custom">bin da</Field>
+      <Field label="Custom">
+        <button>Button</button>
+      </Field>
     </Row>
-    <Row>
       <Col label="Combi">
         <span class="input-group-text">Prefix</span>
         <TextField label="Input" />
         <Button label="Addon" />
       </Col>
-    </Row>
     <Row>
       <Spacer/>
       <Button label="Right" />
@@ -57,7 +116,7 @@ import {BListGroupItem} from "bootstrap-vue-next";
       <Button label="Center" />
       <Spacer/>
     </Row>
-  </Form>
+  </Form-->
 </template>
 
 <style scoped>
