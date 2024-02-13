@@ -79,4 +79,8 @@ final class MainPresenter extends BasePresenter {
         $this->inertia([], 'Edit');
     }
 
+    public function renderWraptest(): void {
+        $this->inertia([], 'WrapTest');
+    }
+
 }

@@ -11,7 +11,4 @@ import Col from "./Col.vue";
 </template>
 
 <style lang="scss" scoped>
-.row-box {
-  background: #fee;
-}
 </style>

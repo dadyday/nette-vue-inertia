@@ -12,7 +12,4 @@ import Field from "./Field.vue";
 </template>
 
 <style lang="scss" scoped>
-.col-box {
-  background: #efe;
-}
 </style>

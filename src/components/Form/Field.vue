@@ -12,7 +12,9 @@ defineProps(['label'])
 </template>
 
 <style lang="scss">
-.field-box {
-  background: #eef;
+@use "bootstrap/dist/css/bootstrap.css";
+
+.input-group > * {
+	@extend .input-group-text
 }
 </style>

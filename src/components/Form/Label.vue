@@ -9,9 +9,5 @@ defineProps(['label'])
 </template>
 
 <style lang="scss">
-@use "bootstrap/dist/css/bootstrap.css";
 
-.label-box {
-  background: #ffc;
-}
 </style>

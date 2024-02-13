@@ -1,8 +1,9 @@
 <script setup>
-import {BListGroupItem} from "bootstrap-vue-next";
+import IconIonAperture from '~icons/ion/aperture-outline';
 </script>
 
 <template>
+	<div class="test" v-if="0">
   <Form>
 		<Row>
 			<Col>
@@ -65,47 +66,25 @@ import {BListGroupItem} from "bootstrap-vue-next";
 					<Button label="Button"/>
 				</Field>
 	</Form>
+	</div>
 
-  <!--Form>
-	<Form>
-		<TextField label="Input" />
-  </Form>
-
-			<Col>
-				<Field label="Single">
-					<TextField />
-				</Field>
-			</Col>
-		<Row>
-			<Col>
-				<Field label="Single">
-					<TextField />
-				</Field>
-			</Col>
-			<Col>
-				<Field label="Combi">
-					<TextField />
-					<Button label="Button" />
-				</Field>
-			</Col>
-		</Row>
-
-
+	<Form class="test">
     <Row>
-      <TextField label="Single" />
-      <Col label="Multi">
+      <TextField label="Single" :icon="IconIonAperture"/>
+      <Field label="Multi">
         <TextField label="Left"/>
         <TextField label="Right"/>
-      </Col>
+      </Field>
       <Field label="Custom">
         <button>Button</button>
       </Field>
     </Row>
-      <Col label="Combi">
-        <span class="input-group-text">Prefix</span>
-        <TextField label="Input" />
-        <Button label="Addon" />
-      </Col>
+      <Field label="Combi">
+				<span>Prefix</span>
+				<i><IconBiBell/></i>
+        <TextField label="Input" :icon="IconIonAperture" />
+        <Button label="Addon" :icon="IconIonAperture" />
+      </Field>
     <Row>
       <Spacer/>
       <Button label="Right" />
@@ -116,9 +95,32 @@ import {BListGroupItem} from "bootstrap-vue-next";
       <Button label="Center" />
       <Spacer/>
     </Row>
-  </Form-->
+  </Form>
+
 </template>
 
-<style scoped>
+<style lang="scss">
+@use "bootstrap/dist/css/bootstrap.css";
 
+.test {
+	.form-box, .row-box, col-box, field-box, label-box {
+		border: dashed 1px #888;
+	}
+
+	.row-box {
+		background: #fee;
+	}
+
+	.col-box {
+		background: #efe;
+	}
+
+	.field-box {
+		background: #eef;
+	}
+
+	.label-box {
+		background: #ffc;
+	}
+}
 </style>

@@ -17,6 +17,9 @@ import PageLink from "@/Shared/PageLink.vue";
 			<li>
 				<PageLink href="/edit">Edit</PageLink>
 			</li>
+      <li>
+				<PageLink href="/wraptest">WrapTest</PageLink>
+			</li>
 		</ul>
 	</nav>
 </template>
